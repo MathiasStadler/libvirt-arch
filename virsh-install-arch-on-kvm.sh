@@ -15,5 +15,5 @@ sudo virt-install \
 --os-variant ubuntu16.04 \
 --network bridge=virbr10 \
 --graphics none \
---console pty,target_type=serial \
+--console=ttyS0 \
 --cdrom /var/lib/libvirt/images/archlinux-2018.12.01-x86_64.iso
