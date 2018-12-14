@@ -7,6 +7,7 @@ then
 fi
 
 sudo virt-install \
+--pxe \
 --name $1 \
 --ram 4096 \
 --disk path=/var/lib/libvirt/images/$1.img,size=20 \
@@ -15,4 +16,4 @@ sudo virt-install \
 --os-variant ubuntu16.04 \
 --network bridge=virbr10 \
 --noautoconsole --graphics=vnc \
---location  /var/lib/libvirt/images/ipxe.lkrn
+
