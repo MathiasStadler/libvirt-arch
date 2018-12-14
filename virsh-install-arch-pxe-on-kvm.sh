@@ -14,6 +14,5 @@ sudo virt-install \
 --os-type linux \
 --os-variant ubuntu16.04 \
 --network bridge=virbr10 \
---graphics none \
---console pty,target_type=serial \
---cdrom /var/lib/libvirt/images/ipxe.lkrn
+--noautoconsole --graphics=vnc \
+--location  /var/lib/libvirt/images/ipxe.lkrn
