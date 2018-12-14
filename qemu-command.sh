@@ -1,0 +1,38 @@
+LC_ALL=C PATH=/usr/local/sbin:/usr/local/bin:/usr/bin 
+QEMU_AUDIO_DRV=none 
+/usr/bin/qemu-system-x86_64 
+-name guest=pxe6,debug-threads=on 
+-S 
+-object secret,id=masterKey0,format=raw,file=/var/lib/libvirt/qemu/domain-25-pxe6/master-key.aes 
+-machine pc-i440fx-3.0,accel=kvm,usb=off,dump-guest-core=off 
+-cpu IvyBridge-IBRS,ss=on,vmx=on,pcid=on,hypervisor=on,arat=on,tsc_adjust=on,umip=on,ssbd=on,xsaveopt=on,topoext=on 
+-m 4096 
+-realtime mlock=off 
+-smp 2,sockets=2,cores=1,threads=1 
+-uuid 04e2989f-2de3-4075-8554-fa9ba59890cd 
+-no-user-config 
+-nodefaults 
+-chardev socket,id=charmonitor,fd=40,server,nowait 
+-mon chardev=charmonitor,id=monitor,mode=control 
+-rtc base=utc,driftfix=slew 
+-global kvm-pit.lost_tick_policy=delay 
+-no-hpet 
+-no-reboot 
+-global PIIX4_PM.disable_s3=1 
+-global PIIX4_PM.disable_s4=1 
+-boot strict=on 
+-device ich9-usb-ehci1,id=usb,bus=pci.0,addr=0x4.0x7 
+-device ich9-usb-uhci1,masterbus=usb.0,firstport=0,bus=pci.0,multifunction=on,addr=0x4 
+-device ich9-usb-uhci2,masterbus=usb.0,firstport=2,bus=pci.0,addr=0x4.0x1 
+-device ich9-usb-uhci3,masterbus=usb.0,firstport=4,bus=pci.0,addr=0x4.0x2 
+-drive file=/var/lib/libvirt/images/pxe6.img,format=qcow2,if=none,id=drive-virtio-disk0 
+-device virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=2 
+-netdev tap,fd=42,id=hostnet0,vhost=on,vhostfd=43 
+-device virtio-net-pci,netdev=hostnet0,id=net0,mac=52:54:00:18:d4:61,bus=pci.0,addr=0x3,bootindex=1 
+-chardev pty,id=charserial0 
+-device isa-serial,chardev=charserial0,id=serial0 
+-device usb-tablet,id=input0,bus=usb.0,port=1 
+-vnc 127.0.0.1:0 
+-device qxl-vga,id=video0,ram_size=67108864,vram_size=67108864,vram64_size_mb=0,vgamem_mb=16,max_outputs=1,bus=pci.0,addr=0x2 
+-device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6 -sandbox on,obsolete=deny,elevateprivileges=deny,spawn=deny,resourcecontrol=deny 
+-msg timestamp=on

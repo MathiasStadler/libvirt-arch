@@ -20,7 +20,7 @@ https://blog.scottlowe.org/2015/05/11/using-pxe-with-virt-install/
 # ubuntu pressed sample
 https://blog.scottlowe.org/2015/05/20/fully-automated-ubuntu-install/
 
-#
+# many linux version
 https://eatpeppershothot.blogspot.com/2016/07/enable-pxe-netboot-in-kvm-guests-for.html
 
 # pxe on z14
@@ -32,6 +32,23 @@ https://wiki.libvirt.org/page/PXE_boot_(or_dhcp)_on_guest_failed
 
 # de openstack vnc
 https://docs.openstack.org/de/image-guide/virt-install.html
+
+# dnsmasq standalone tftp
+https://stelfox.net/blog/2013/12/using-dnsmasq-as-a-standalone-tftp-server/
+
+
+# ipxe script und ausfuerliche anleitung
+https://jpmens.net/2011/07/18/network-booting-machines-over-http/
+
+# set user class
+https://www.google.com/search?q=ipxe+User-Class+Option+77%2C+length+4%3A+dnsmasq&btnG=Suche&client=ubuntu&channel=fs
+
+
+# generated ipxe images
+https://rom-o-matic.eu/
+
+# 
+https://blog.dachary.org/
 
 ```
 
