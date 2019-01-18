@@ -50,8 +50,13 @@ https://rom-o-matic.eu/
 # 
 https://blog.dachary.org/
 
-```
+#dnsmasq tftp manual
+https://wiki.archlinux.org/index.php/dnsmasq#TFTP_server
 
+# remaster images
+https://wiki.archlinux.org/index.php/Remastering_the_Install_ISO
+
+```
 
 ## preparation on host
 
